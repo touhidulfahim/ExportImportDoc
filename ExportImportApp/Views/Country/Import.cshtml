@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Import";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-md-12">
+    <div class="card card-info">
+        <div class="card-header">Country Information</div>
+        <form asp-area="" asp-controller="Country" asp-antiforgery="true" asp-action="Import" method="post" enctype="multipart/form-data">
+            <div class="card-body">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group row">
+                    <input type="file" name="file" accept=".xlsx" />
+                </div>
+            </div>
+            <div class="card-footer">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+

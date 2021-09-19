@@ -10,7 +10,7 @@ namespace ExportImportApp.Models
     public class BaseModel
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long SysId { get; set; }
     }
 }

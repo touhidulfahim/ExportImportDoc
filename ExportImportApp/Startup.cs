@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ExportImportApp.Gateway;
+using Microsoft.EntityFrameworkCore;
 
 namespace ExportImportApp
 {
@@ -24,10 +26,13 @@ namespace ExportImportApp
         public void ConfigureServices(IServiceCollection services)
         {
 
-            var connection = Configuration.GetConnectionString("DatabaseConnection");
-            //services.AddDbContext<TsnShebaDbContext>(options => options.UseSqlServer(connection));
+            //var connection = Configuration.GetConnectionString("DatabaseConnection");
+            //services.AddDbContext<ExportImportDbContext>(options => options.UseSqlServer(connection));
 
-
+            services.AddDbContext<ExportImportDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection"));
+            });
 
 
 
